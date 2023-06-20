@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #232323;
+
+    --fa-font-brands: "Font Awesome 6 Free";
+}
+
+@media screen {
+    body {
+        max-width: 60em;
+    }
+}
+
+@media print {
+    :root {
+        font-size: 9pt;
+    }
+
+    .screen-only {
+        display: none;
+    }
+}
+
+@page {
+    size: A4;
+    margin: 5mm 5mm 5mm 10mm;
+}
+
+body {
+    margin: 0em auto;
+    padding: 1em;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul>li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #232323;
+}
+
+main .place {
+    font-size: 0.8em;
+}
+
+.time-span {
+    color: #818181;
+    font-size: 0.8em;
+}
+
+strong {
+    background-color: rgb(219, 244, 219);
+    font-weight: normal;
+}
+
+/* || Header */
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template:
+        "portrait application     social" min-content
+        "portrait about-me-header social" auto
+        "portrait about-me-body   about-me-body"
+        "contacts about-me-body   about-me-body"
+        / 12em 2fr max-content;
+    column-gap: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ABABAB;
+}
+
+header #portrait {
+    grid-area: portrait;
+    align-self: center;
+
+    width: 0;
+    min-width: 100%;
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+header #application {
+    grid-area: application;
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 2.85em;
+    line-height: 1em;
+}
+
+header h2 {
+    font-weight: 400;
+    font-size: 1.7em;
+    line-height: 1em;
+}
+
+header #about-me {
+    display: contents;
+}
+
+header #about-me h3 {
+    grid-area: about-me-header;
+    align-self: flex-end;
+
+    margin: 0px;
+}
+
+header #about-me summary {
+    grid-area: about-me-body;
+    background-color: #F2F2F2;
+    padding: 0.5em;
+    align-content: start;
+}
+
+header #social {
+    grid-area: social;
+    align-self: flex-end;
+}
+
+header #social li {
+    margin: 0.5em 0;
+}
+
+header #contacts {
+    grid-area: contacts;
+}
+
+header h3 {
+    text-transform: uppercase;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.125em;
+    line-height: 1.22em;
+
+    letter-spacing: 0.15em;
+
+    color: #818181;
+}
+
+header #contacts {
+    font-size: 0.8em;
+}
+
+header #contacts>* {
+    margin-top: 0.5em;
+}
+
+@media 
+    screen and (max-width: 49em),
+    print and (max-width: 32em) {
+    header {
+        display: grid;
+        grid-template:
+            "portrait        application" min-content
+            "about-me-header about-me-header"
+            "about-me-body   about-me-body"
+            "social          social"
+            "contacts        contacts"
+            / 5em auto;
+    }
+
+    header #portrait {
+        aspect-ratio: 1 / 1;
+    }
+
+    header #contacts {
+        font-size: 1em;
+    }
+
+    header #contacts>*:first-child {
+        margin-top: 0;
+    }
+}
+
+/* || Main */
+
+main section {
+    margin: 0.2em;
+}
+
+main h1 {
+    text-transform: uppercase;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.125em;
+    line-height: 1.06em;
+    letter-spacing: 0.15em;
+    color: #818181;
+}
+
+main h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.25em;
+    line-height: 1.2em;
+    margin-bottom: 0;
+
+    color: #232323;
+}
+
+main section#selected-work ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+main .work {
+    display: grid;
+    grid-template:
+        "screenshot"
+        "title"
+        "summary"
+        "link";
+        align-items: start;
+}
+
+main .work>picture { grid-area: screenshot; }
+
+main .work>h2 { grid-area: title; }
+
+main .work>p { grid-area: summary; }
+
+main .work>a { grid-area: link; }
+
+main .work>picture>img {
+    object-fit: fill;
+    max-width: 100%;
+    aspect-ratio: 2 / 1;
+}
+
+main .work p {
+    margin: 0.5em 0;
+}
+
+main .work a {
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 36em), print and (max-width: 27em) {
+    main section#selected-work ul {
+        flex-direction: column;
+    }
+}
+
+@media
+    screen and (max-width: 36em) and (min-width: 22em),
+    print and (max-width: 27em) and (min-width: 16.5em) {
+    main .work {
+        grid-template:
+            "screenshot title" auto
+            "screenshot link" 1.2em
+            "summary    summary" auto
+            / 16em auto;
+        column-gap: 1em;
+        align-items: end;
+    }
+}
+
+main section#selected-work ul>li {
+    flex: 1 1 33%;
+}
+
+/* || Sidebar */
+
+
+aside {
+    border-left: 1px solid #ABABAB;
+    padding-left: 1em;
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.tag-cloud li {
+    background-color: #F2F2F2;
+    border-radius: 0.5em;
+    padding: 0 0.5em;
+    margin: 0.2em;
+}
+
+aside ul:not(.tag-cloud) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+aside h1 {
+    text-transform: uppercase;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.125em;
+    line-height: 1.2em;
+    letter-spacing: 0.15em;
+    color: #818181;
+}
+
+/* || Layout */
+
+body {
+    display: grid;
+    grid-template:
+        "header     header    header" auto
+        "selected   selected  selected" auto
+        "experience education enum" auto
+        "experience courses   enum" max-content
+        / 1fr 1fr 1fr;
+    gap: 1em;
+}
+
+@media
+    screen and (max-width: 36em),
+    print and (max-width: 27em) {
+    body {
+        grid-template:
+            "header     header"
+            "selected   selected"
+            "experience enum"
+            "education  enum"
+            "courses    enum"
+            / 2fr 1fr;
+    }
+}
+
+@media screen and (max-width: 28em),
+    print and (max-width: 21em) {
+    body {
+        grid-template:
+            "header"
+            "selected"
+            "experience"
+            "education"
+            "courses"
+            "enum";
+    }
+}
+
+header { grid-area: header; }
+main { display: contents; }
+#selected-work { grid-area: selected; }
+#experience { grid-area: experience; }
+#education { grid-area: education; }
+#courses { grid-area: courses; }
+#enumerations { grid-area: enum; }
