@@ -352,6 +352,14 @@ body {
             "courses"
             "enum";
     }
+
+    aside {
+        border-left: initial;
+        padding-left: initial;
+
+        border-top: 1px solid #ABABAB;
+        padding-top: 1em;
+    }
 }
 
 header { grid-area: header; }
