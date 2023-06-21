@@ -1,0 +1,19 @@
+:root {
+    --background-color: white;
+    --card-background-color: #f2f2f2;
+    --text-color: #232323;
+    --hint-color: #818181;
+    --accent-color: #dcf4dc;
+    --border-color: #ababab;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #232323;
+        --card-background-color: #1a1a1a;
+        --text-color: #bfbfaf;
+        --hint-color: #7e7e6e;
+        --accent-color: #1c3a27;
+        --border-color: #aaaaa6;
+    }
+}
