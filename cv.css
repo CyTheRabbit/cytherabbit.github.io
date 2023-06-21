@@ -240,7 +240,7 @@ main .work>a { grid-area: link; }
 main .work>picture>img {
     object-fit: fill;
     max-width: 100%;
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 512 / 250;
 }
 
 main .work p {
