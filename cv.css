@@ -46,7 +46,6 @@ ul>li {
 }
 
 a {
-    text-decoration: none;
     color: var(--text-color);
 }
 
@@ -137,6 +136,10 @@ header #social li {
 
 header #contacts {
     grid-area: contacts;
+}
+
+header a {
+    text-decoration: none;
 }
 
 header h3 {
